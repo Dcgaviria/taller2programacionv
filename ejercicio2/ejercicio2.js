@@ -9,4 +9,4 @@ if (numero == 0)
 else if (numero > 0)
     console.log("El número es positivo")
 else 
-console.log("El número es negativo")
+console.log("El número es negativo") // para ejecutarlo en el npm hay que hacer npm run ejercicio -- el numero negativo
