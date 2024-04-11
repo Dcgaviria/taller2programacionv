@@ -1,14 +1,19 @@
-// Función para determinar la obligación de tributar
-function debeTributar(edad, ingresosMensuales) {
-    if (edad >= 16 && ingresosMensuales >= 1000) {
-      console.log("El usuario debe tributar.");
-    } else {
-      console.log("El usuario no está obligado a tributar.");
-    }
-  }
-  
-  // Programa principal
-  const edadUsuario = parseInt(prompt("Ingrese su edad: "));
-  const ingresosUsuario = parseFloat(prompt("Ingrese sus ingresos mensuales (€): "));
-  
-  debeTributar(edadUsuario, ingresosUsuario);
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Introduce tu edad: ", (edad) => {
+    rl.question("Introduce tus ingresos: ", (ingreso) => {
+
+        if (edad >= 16 && ingreso >= 1000) {
+            console.log("debes tributar ");
+        } else {
+            console.log("no debes tributar");
+        }
+
+        rl.close();
+    });
+});
