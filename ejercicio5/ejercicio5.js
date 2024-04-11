@@ -2,18 +2,23 @@
 ejercicio debe tomar la longitud del tramo en kilómetros y el tiempo empleado, si la velocidad está entre
 40 y 60 km/h el conductor pasa la prueba en caso contrario es descalificado.
 */
-function checkDriverSpeed(tramoLength, timeEmpleado) {
-    tramoLength = parseFloat(tramoLength);
-    timeEmpleado = parseFloat(timeEmpleado);
-    speed = tramoLength / timeEmpleado;
-    if (40 <= speed && speed <= 60) {
-      return "The conductor paso la  prueba.";
-    } else {
-      return "The conductor esta descalificado.";
-    }
-  }
-  
-  // Test the function
-  console.log(checkDriverSpeed(100, 1.5)); // Output: The driver passes the prueba.
-  console.log(checkDriverSpeed(100, 2.5)); // Output: The driver is descalificado.
-  console.log(checkDriverSpeed(100, 1)); // Output: The driver is descalificado.
+const readline = require('readline');
+
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+
+rl.question("Introduce la longitud del tramo en kilómetros: ", (longitud) => {
+    rl.question("Introduce el tiempo empleado en horas: ", (tiempo) => {
+        let velocidad = longitud / tiempo;
+
+        if (velocidad >= 40 && velocidad <= 60) {
+            console.log("El conductor pasa la prueba");
+        } else {
+            console.log("El conductor está descalificado");
+        }
+
+        rl.close();
+    });
+});
